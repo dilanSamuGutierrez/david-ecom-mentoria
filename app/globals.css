@@ -1,0 +1,182 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* ============================================================
+   DAVID ECOM — Sistema visual (dark-first, verde profundo)
+   Identidad propia. Inspirada en principios premium, no copia.
+   ============================================================ */
+
+@theme {
+  --font-display: "Sora Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
+
+  /* Superficies */
+  --color-background: #05090b;
+  --color-surface: #0a1210;
+  --color-elevated: #0e1a16;
+
+  /* Texto */
+  --color-foreground: #e9f1ec;
+  --color-muted: #94a99f;
+  --color-faint: #56665e;
+
+  /* Líneas */
+  --color-border: #17221d;
+
+  /* Marca — verde ecommerce, refinado (no neón) */
+  --color-primary: #10b981;
+  --color-primary-foreground: #04130c;
+  --color-primary-soft: #34d399;
+  --color-mint: #6ee7b7;
+
+  /* Acento cálido, uso mínimo (numerales / detalles premium) */
+  --color-gold: #cca352;
+
+  --color-danger: #f4726b;
+
+  --radius: 16px;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display), var(--font-sans), sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+  }
+  ::selection {
+    background: rgba(16, 185, 129, 0.26);
+    color: #eafff5;
+  }
+  a { -webkit-tap-highlight-color: transparent; }
+}
+
+/* ---------- Utilidades de composición ---------- */
+
+.glass {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.016));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+
+.glass-strong {
+  background: linear-gradient(180deg, rgba(20, 34, 29, 0.85), rgba(10, 18, 16, 0.7));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+}
+
+.card-hover {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.4s ease, box-shadow 0.4s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  border-color: rgba(16, 185, 129, 0.4);
+  box-shadow: 0 18px 60px -30px rgba(16, 185, 129, 0.55);
+}
+
+.eyebrow {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-primary-soft);
+}
+
+/* Tipografía fantasma de fondo (ghost words) */
+.ghost-word {
+  font-family: var(--font-display), sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: rgba(233, 241, 236, 0.035);
+  line-height: 0.8;
+  pointer-events: none;
+  user-select: none;
+}
+
+.text-gradient {
+  background: linear-gradient(120deg, #e9f1ec 0%, #a7f3d0 55%, #34d399 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hairline {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.14), transparent);
+}
+
+/* Fondo de rejilla sutil para placeholders y bandas */
+.grid-bg {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.noise {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+/* Resplandor radial de marca */
+.glow-emerald {
+  background: radial-gradient(closest-side, rgba(16, 185, 129, 0.18), transparent 70%);
+}
+
+.section-pad {
+  padding-top: clamp(4.5rem, 9vw, 9rem);
+  padding-bottom: clamp(4.5rem, 9vw, 9rem);
+}
+
+/* Banda invertida (ritmo claro/oscuro) */
+.on-light {
+  --color-background: #f4f7f5;
+  --color-foreground: #0a1512;
+  --color-muted: #4c5f57;
+  --color-border: #dbe6e0;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+}
+.on-light .glass {
+  background: rgba(255, 255, 255, 0.6);
+  border-color: rgba(6, 20, 15, 0.08);
+}
+.on-light .eyebrow { color: #0f7a54; }
+.on-light .ghost-word { color: rgba(10, 21, 18, 0.045); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #05090b; }
+::-webkit-scrollbar-thumb {
+  background: #16382c;
+  border-radius: 999px;
+  border: 2px solid #05090b;
+}
+::-webkit-scrollbar-thumb:hover { background: #1d5140; }
