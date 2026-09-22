@@ -1,41 +1,49 @@
 import { Icon } from "./icon";
 import { cn } from "@/lib/utils";
 
+/**
+ * Marco de imagen editorial (placeholder). No es un cuadro gris: es un marco
+ * integrado con etiqueta tipo "figura", listo para reemplazar por la imagen real.
+ */
 export function MediaPlaceholder({
   label,
   icon = "image",
   className,
   aspect,
+  index,
 }: {
   label: string;
   icon?: string;
   className?: string;
   aspect?: string;
+  index?: string;
 }) {
   return (
-    <div
+    <figure
       className={cn(
-        "group relative flex min-h-[10rem] items-center justify-center overflow-hidden rounded-2xl",
+        "media-frame group grid-bg flex min-h-[9rem] items-center justify-center bg-surface",
         className,
       )}
       style={aspect ? { aspectRatio: aspect } : undefined}
     >
-      <div className="absolute inset-0 glass grid-bg" />
-      <div className="absolute inset-0 glow-emerald opacity-25 transition-opacity duration-500 group-hover:opacity-45" />
-      <div className="absolute inset-3 rounded-xl border border-dashed border-primary/25" />
+      <div className="absolute inset-0 glow-emerald opacity-20 transition-opacity duration-500 group-hover:opacity-40" />
 
-      <div className="relative z-10 flex flex-col items-center gap-3 px-6 py-8 text-center">
-        <div className="flex size-12 items-center justify-center rounded-full border border-primary/30 bg-primary/10 text-primary-soft">
-          <Icon name={icon} className="size-5" />
-        </div>
-        <div className="font-mono text-[0.68rem] tracking-[0.25em] text-foreground/60">
-          [ IMAGEN ]
-        </div>
-        <div className="max-w-[16rem] text-sm font-medium leading-snug text-foreground/85">
-          {label}
-        </div>
-        <div className="text-xs text-faint">Reemplazar por captura real</div>
+      {/* etiqueta de esquina tipo editorial */}
+      <div className="absolute left-4 top-4 flex items-center gap-2 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-white/40">
+        <span>{index ?? "Fig."}</span>
+        <span className="h-px w-5 bg-current opacity-50" />
+        <span>Imagen</span>
       </div>
-    </div>
+
+      <figcaption className="relative z-10 flex flex-col items-center gap-3 px-6 py-8 text-center">
+        <span className="flex size-11 items-center justify-center rounded-full border border-primary/25 bg-primary/10 text-primary-soft">
+          <Icon name={icon} className="size-5" />
+        </span>
+        <span className="max-w-[15rem] text-sm font-medium leading-snug text-white/75">
+          {label}
+        </span>
+        <span className="text-xs text-white/35">Reemplazar por imagen real</span>
+      </figcaption>
+    </figure>
   );
 }

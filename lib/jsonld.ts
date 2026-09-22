@@ -5,7 +5,11 @@ export function jsonLd() {
     site.contact.social.instagram,
     site.contact.social.tiktok,
     site.contact.social.youtube,
-  ].filter((u) => u && u.length > 12);
+  ].filter((u) => {
+    if (!u) return false;
+    try { return new URL(u).pathname.replace(/\//g, "").length > 0; }
+    catch { return false; }
+  });
 
   return {
     "@context": "https://schema.org",
@@ -13,14 +17,14 @@ export function jsonLd() {
       {
         "@type": "Person",
         name: site.brand,
-        jobTitle: "Mentor de ecommerce y dropshipping",
+        jobTitle: "Mentor de dropshipping y Meta Ads",
         url: site.url,
         description: site.description,
         sameAs,
       },
       {
         "@type": "Service",
-        serviceType: "Mentoría 1:1 de ecommerce / dropshipping",
+        serviceType: "Mentoría 1:1 de dropshipping y Meta Ads",
         provider: { "@type": "Person", name: site.brand },
         areaServed: "LATAM",
         url: site.url,

@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
-import { site } from "@/lib/site";
+import { site, whatsappConfigured, whatsappHref } from "@/lib/site";
 import { CtaButton } from "@/components/ui/cta";
 import { Logo } from "./logo";
 import { cn } from "@/lib/utils";
@@ -11,6 +11,19 @@ import { cn } from "@/lib/utils";
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const menuButton = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        menuButton.current?.focus();
+      }
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [open]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
@@ -47,8 +60,8 @@ export function Nav() {
 
         <div className="hidden lg:flex">
           <CtaButton
-            href={site.contact.bookingUrl}
-            external
+            href={whatsappConfigured ? whatsappHref() : "#contacto"}
+            external={whatsappConfigured}
             showArrow={false}
             className="px-5 py-2.5"
           >
@@ -57,10 +70,12 @@ export function Nav() {
         </div>
 
         <button
+          ref={menuButton}
           type="button"
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? "Cerrar menú" : "Abrir menú"}
           aria-expanded={open}
+          aria-controls="mobile-menu"
           className="flex size-10 items-center justify-center rounded-lg text-foreground lg:hidden"
         >
           {open ? <X className="size-5" /> : <Menu className="size-5" />}
@@ -68,7 +83,7 @@ export function Nav() {
       </div>
 
       {open && (
-        <div className="border-t border-white/5 bg-background/95 backdrop-blur-xl lg:hidden">
+        <div id="mobile-menu" className="border-t border-white/5 bg-background/95 backdrop-blur-xl lg:hidden">
           <div className="mx-auto flex max-w-7xl flex-col gap-1 px-5 py-4 sm:px-8">
             {site.nav.map((item) => (
               <a
@@ -80,14 +95,16 @@ export function Nav() {
                 {item.label}
               </a>
             ))}
-            <CtaButton
-              href={site.contact.bookingUrl}
-              external
-              showArrow={false}
-              className="mt-2 w-full"
-            >
-              {site.cta.primary}
-            </CtaButton>
+            <div onClick={() => setOpen(false)}>
+              <CtaButton
+                href={whatsappConfigured ? whatsappHref() : "#contacto"}
+                external={whatsappConfigured}
+                showArrow={false}
+                className="mt-2 w-full"
+              >
+                {site.cta.primary}
+              </CtaButton>
+            </div>
           </div>
         </div>
       )}

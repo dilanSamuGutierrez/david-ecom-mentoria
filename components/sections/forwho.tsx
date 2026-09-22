@@ -1,62 +1,17 @@
-import { site } from "@/lib/site";
+import { Check, Minus } from "lucide-react";
 import { Container } from "@/components/ui/container";
-import { SectionHeading } from "@/components/ui/section";
-import { Reveal } from "@/components/ui/reveal";
-import { Check, X } from "lucide-react";
+import { SectionHeader } from "@/components/ui/section";
+
+const yes = ["Quieres crear un negocio con dropshipping, aunque empieces desde cero.", "Cuentas con presupuesto para montar tu tienda y probar campañas.", "Puedes dedicar tiempo a aprender, ejecutar y revisar avances.", "Buscas la guía de alguien que también opera su propio negocio."];
+const no = ["Buscas ingresos rápidos o resultados garantizados.", "Necesitas que alguien ejecute todo por ti.", "Aún no cuentas con tiempo o recursos para operar.", "Prefieres consumir contenido sin llevarlo a la práctica."];
 
 export function ForWho() {
-  const { forWho } = site;
   return (
-    <section id="para-quien" className="on-light relative section-pad">
-      <Container>
-        <SectionHeading
-          center
-          eyebrow={forWho.eyebrow}
-          title={forWho.title}
-        />
-
-        <div className="mt-14 grid gap-4 lg:grid-cols-2">
-          <Reveal>
-            <div className="h-full rounded-3xl border border-primary/30 bg-primary/[0.07] p-8 sm:p-10">
-              <h3 className="text-lg font-semibold text-foreground">
-                {forWho.is.title}
-              </h3>
-              <ul className="mt-6 space-y-4">
-                {forWho.is.points.map((p) => (
-                  <li key={p} className="flex gap-3">
-                    <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary">
-                      <Check className="size-3.5" />
-                    </span>
-                    <span className="text-[0.95rem] leading-relaxed text-foreground/90">
-                      {p}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.08}>
-            <div className="h-full rounded-3xl border border-border bg-white/60 p-8 sm:p-10">
-              <h3 className="text-lg font-semibold text-foreground">
-                {forWho.isNot.title}
-              </h3>
-              <ul className="mt-6 space-y-4">
-                {forWho.isNot.points.map((p) => (
-                  <li key={p} className="flex gap-3">
-                    <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-danger/15 text-danger">
-                      <X className="size-3.5" />
-                    </span>
-                    <span className="text-[0.95rem] leading-relaxed text-muted">
-                      {p}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </Reveal>
-        </div>
-      </Container>
+    <section id="para-quien" className="section-pad fit-section">
+      <Container><div className="fit-panel">
+        <SectionHeader title="Que tenga sentido para los dos." />
+        <div className="fit-grid"><article><h3>Puede ser para ti si…</h3><ul>{yes.map(text => <li key={text}><Check size={18} aria-hidden />{text}</li>)}</ul></article><article><h3>Quizá no sea el momento si…</h3><ul>{no.map(text => <li key={text}><Minus size={18} aria-hidden />{text}</li>)}</ul></article></div>
+      </div></Container>
     </section>
   );
 }

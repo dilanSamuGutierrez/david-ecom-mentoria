@@ -1,6 +1,6 @@
 import { site } from "@/lib/site";
 import { Container } from "@/components/ui/container";
-import { SectionHeading } from "@/components/ui/section";
+import { SectionHeader } from "@/components/ui/section";
 import { Reveal } from "@/components/ui/reveal";
 
 export function How() {
@@ -8,18 +8,17 @@ export function How() {
   return (
     <section className="relative section-pad">
       <Container>
-        <SectionHeading center eyebrow={how.eyebrow} title={how.title} />
+        <SectionHeader kicker={how.eyebrow} title={how.title} />
 
-        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
           {how.steps.map((step, i) => (
             <Reveal key={step.title} delay={i * 0.07}>
-              <div className="card-hover relative h-full rounded-2xl glass p-6">
-                <span className="font-mono text-sm text-primary-soft">
-                  0{i + 1}
+              <div className="border-t border-primary/30 pt-5">
+                <span className="index-num font-mono text-2xl">
+                  {String(i + 1).padStart(2, "0")}
                 </span>
-                <div className="mt-4 h-px w-full bg-gradient-to-r from-primary/40 to-transparent" />
-                <h3 className="mt-4 text-lg font-semibold">{step.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">
+                <h3 className="display mt-5 text-xl">{step.title}</h3>
+                <p className="mt-2.5 text-sm leading-relaxed text-muted">
                   {step.text}
                 </p>
               </div>

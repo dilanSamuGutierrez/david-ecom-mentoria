@@ -4,8 +4,9 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   images: {
-    // Placeholders locales por ahora; agrega dominios reales cuando subas capturas remotas.
-    remotePatterns: [],
+    // Sin optimización de servidor: sirve las imágenes de /public tal cual.
+    // Evita depender de `sharp` y funciona igual en dev, build y Windows.
+    unoptimized: true,
   },
 };
 

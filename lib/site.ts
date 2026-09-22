@@ -1,39 +1,40 @@
 /* ============================================================================
    DAVID ECOM — CONFIGURACIÓN CENTRAL
    ----------------------------------------------------------------------------
-   Este es el ÚNICO archivo que necesitas editar para cambiar textos, datos de
-   contacto y métricas. Busca los comentarios "TODO" para reemplazar los datos
-   reales antes de publicar.
+   Configuración de identidad, contacto, métricas y contenido compartido.
+   El contenido de las secciones también vive en components/sections.
+   Busca los comentarios "TODO" para confirmar datos antes de publicar.
 
-   ⚠️  Las cifras de métricas y los casos de éxito son PLACEHOLDERS.
-       No publiques números que no puedas demostrar. Reemplázalos por datos
-       reales (o deja el placeholder de imagen para subir la captura real).
+   Las métricas visibles se contrastaron con las capturas suministradas.
+   Dominio, agenda y perfiles sociales requieren confirmación.
+   Los bloques heredados no montados conservan su contenido de referencia.
    ============================================================================ */
 
 export const site = {
   // ---- Identidad ---------------------------------------------------------
   brand: "David Ecom",
   mentor: "David",
-  role: "Operador de ecommerce · Mentoría 1:1",
+  role: "Mentoría 1:1 para crear tu negocio con dropshipping",
   // TODO: dominio real para SEO / Open Graph
   url: "https://davidecom.co",
   locale: "es_CO",
   description:
-    "Acompañamiento 1:1 de ecommerce y dropshipping con un operador real que superó los USD 100.000 en ventas. No es un curso masivo: reviso tu tienda, tus métricas y tus campañas contigo.",
+    "Crea tu negocio con dropshipping junto a David Ecom. Mentoría 1:1 para elegir tu producto, construir tu tienda y lanzar tus primeras campañas de Meta Ads, con el acompañamiento de un operador activo.",
   keywords: [
     "mentoría dropshipping",
-    "mentoría ecommerce Colombia",
+    "mentoría de Meta Ads Colombia",
     "acompañamiento 1 a 1 dropshipping",
-    "escalar tienda Shopify",
+    "crear un negocio con dropshipping",
+    "dropshipping desde cero",
     "David Ecom",
   ],
 
   // ---- Contacto / conversión --------------------------------------------
   contact: {
-    // TODO: número real de WhatsApp en formato internacional sin "+" ni espacios
-    whatsapp: "573000000000",
+    // Número que ya utilizaba el hero; compartido por todos los enlaces y el formulario.
+    whatsapp: "573013965167",
     whatsappMessage:
-      "Hola David, vengo de tu página. Quiero contarte sobre mi negocio y ver si puedo aplicar a la mentoría 1:1.",
+      "Hola David, vengo de tu página. Quiero crear mi negocio con dropshipping y saber cómo me puedes acompañar en la mentoría 1:1.",
     // TODO: enlace real de agenda (Cal.com, Calendly, TidyCal, etc.)
     bookingUrl: "https://cal.com/david-ecom/diagnostico",
     // TODO: correo real (opcional)
@@ -62,12 +63,12 @@ export const site = {
 
   // ---- Hero --------------------------------------------------------------
   hero: {
-    badge: "Acompañamiento 1:1 · No es un curso masivo",
+    badge: "Dropshipping + Meta Ads · Acompañamiento 1:1",
     titleTop: "Deja de operar",
     titleHighlight: "a ciegas.",
     titleBottom: "Escala con criterio real.",
     subtitle:
-      "Acompañamiento personalizado de un operador que construyó y escaló su propia operación de ecommerce hasta superar los USD 100.000 en ventas. Reviso tu tienda, tus productos, tus campañas y tus números contigo — no en un grupo de 20 personas.",
+      "Acompañamiento personalizado de un operador que construyó y escaló su propio dropshipping hasta superar los USD 100.000 en ventas con Meta Ads. Reviso tu tienda, tus productos, tus campañas y tus números contigo — no en un grupo de 20 personas.",
     points: [
       "Diagnóstico real de tu negocio",
       "Estrategia adaptada a tus números",
@@ -78,14 +79,23 @@ export const site = {
   // ---- Logos / herramientas (prueba de contexto) ------------------------
   tools: ["Shopify", "Meta Ads", "TikTok Ads", "Dropi", "Google Analytics"],
 
-  // ---- Métricas (PLACEHOLDERS — reemplazar por datos reales) ------------
+  // ---- Métricas de las capturas suministradas --------------------------
   // 'value' es el número final que anima; 'prefix'/'suffix' lo formatean.
   stats: [
-    { value: 100, prefix: "+USD ", suffix: "K", label: "Facturados como operador", note: "[Verificar cifra real]" },
-    { value: 6, prefix: "", suffix: "+", label: "Años operando ecommerce", note: "[Verificar]" },
-    { value: 8, prefix: "", suffix: " países", label: "Alcance de operación LATAM", note: "[Verificar]" },
-    { value: 100, prefix: "", suffix: "%", label: "Atención personalizada 1:1", note: "" },
+    { value: 84, prefix: "$", suffix: "M", label: "Ventas registradas · COP", note: "" },
+    { value: 327, prefix: "", suffix: "", label: "Pedidos generados", note: "" },
+    { value: 10, prefix: "$", suffix: "M+", label: "Invertido en Meta Ads · COP", note: "" },
+    { value: 3873, prefix: "", suffix: "", label: "Conversaciones en Meta", note: "" },
   ],
+  // Foto del mentor: recorte sin fondo (mentor-cutout.png) + original.
+  media: {
+    mentorCutout: "/media/JOSEXXO_3.png",
+    mentorPhoto: "/media/JOSEXXO_3.png",
+    // Sube un PNG/WebP transparente a public/media y escribe aquí su ruta pública.
+    // Vacío = espacio reservado sin marco, fondo añadido ni imagen rota.
+    proposalImage: "/media/JOSEXXO.png",
+    proposalImageAlt: "David trabajando en su portátil durante una sesión de mentoría",
+  },
 
   // ---- El problema -------------------------------------------------------
   problem: {
@@ -95,23 +105,23 @@ export const site = {
     pains: [
       {
         icon: "flame",
-        title: "Presupuesto que se quema",
-        text: "Campañas que gastan sin datos claros para decidir cuándo escalar, cuándo apagar y cuándo optimizar.",
+        title: "No sabes por dónde empezar",
+        text: "Ves información sobre productos, tiendas y anuncios, pero te falta una ruta para convertirla en un negocio.",
       },
       {
         icon: "shuffle",
-        title: "Estrategia genérica",
-        text: "Fórmulas “para todos” que ignoran tu producto, tu margen, tu país y tu punto de partida real.",
+        title: "Elegir qué vender",
+        text: "Necesitas evaluar productos y proveedores, calcular costes y entender si una idea tiene sentido antes de invertir.",
       },
       {
         icon: "eye-off",
-        title: "Decisiones a ciegas",
-        text: "Métricas que no sabes leer (ROAS, CPA, tasa de entrega) y que terminan guiándote por corazonadas.",
+        title: "Miedo a invertir a ciegas",
+        text: "Quieres lanzar tus primeros anuncios con un presupuesto definido y saber qué mirar para decidir el siguiente paso.",
       },
       {
         icon: "users",
-        title: "Soporte diluido",
-        text: "Dudas perdidas en un grupo de decenas de personas, donde nadie conoce el contexto de tu tienda.",
+        title: "Avanzar sin acompañamiento",
+        text: "Al llevar una idea a la práctica aparecen dudas concretas. Necesitas a alguien que conozca tu proyecto y lo revise contigo.",
       },
     ],
   },
@@ -141,14 +151,16 @@ export const site = {
   evidence: {
     eyebrow: "Pruebas, no promesas",
     title: "Resultados que se muestran, no que se prometen",
-    lead: "Aquí van las capturas reales. Los espacios están diseñados para tus pruebas: facturación, dashboards y campañas. Reemplaza cada placeholder por la imagen real.",
-    slots: [
-      { label: "MÉTRICAS DE FACTURACIÓN", icon: "line-chart", span: "lg" },
-      { label: "DASHBOARD SHOPIFY", icon: "shopping-bag", span: "sm" },
-      { label: "META ADS · ROAS", icon: "target", span: "sm" },
-      { label: "TIKTOK ADS", icon: "activity", span: "sm" },
-      { label: "PEDIDOS / VENTAS", icon: "package", span: "sm" },
-      { label: "REDES SOCIALES", icon: "instagram", span: "md" },
+    lead: "Capturas reales de la operación: Meta Ads, Shopify y los abonos al banco. Sin maquillaje.",
+    feature: {
+      src: "/media/meta-ads-tabla.jpg",
+      label: "Cuenta de Meta Ads — gasto y conversiones reales",
+      fit: "contain" as const,
+    },
+    grid: [
+      { src: "/media/shopify-pedidos.jpg", label: "Pedidos entrando en Shopify", fit: "cover" as const, icon: "shopping-bag" },
+      { src: "/media/banco-abonos.jpg", label: "Abonos recibidos al banco", fit: "contain" as const, icon: "line-chart" },
+      { placeholder: true, label: "Dashboard de Shopify — sube tu captura", fit: "cover" as const, icon: "line-chart" },
     ],
   },
 
@@ -204,11 +216,11 @@ export const site = {
     eyebrow: "Metodología",
     title: "El proceso, en cinco etapas",
     stages: [
-      { n: "01", title: "Diagnóstico", text: "Radiografía de tu negocio: tienda, producto, oferta, márgenes y métricas actuales." },
-      { n: "02", title: "Estrategia", text: "Definimos el plan: producto, oferta, canales de adquisición y prioridades reales." },
-      { n: "03", title: "Implementación", text: "Ejecutamos campañas y ajustes de tienda con criterio, no a ciegas." },
-      { n: "04", title: "Optimización", text: "Leemos los datos y afinamos: qué escalar, qué apagar, qué corregir." },
-      { n: "05", title: "Escalamiento", text: "Aumentamos volumen cuidando margen, operación y sostenibilidad." },
+      { n: "01", title: "Punto de partida", text: "Hablamos de tu idea, tu experiencia, tu tiempo y tu presupuesto para definir una ruta realista." },
+      { n: "02", title: "Producto y oferta", text: "Evaluamos qué vender, con qué proveedores trabajar y cómo calcular tus costes y tu margen." },
+      { n: "03", title: "Tu tienda", text: "Te acompaño a preparar tu tienda, la página de producto y el proceso de compra." },
+      { n: "04", title: "Primeras campañas", text: "Preparamos anuncios en Meta Ads, definimos un presupuesto de prueba y aprendemos a leer los resultados." },
+      { n: "05", title: "Ajustes y crecimiento", text: "Revisamos lo que pasa en tu negocio y decidimos qué mejorar antes de aumentar la inversión." },
     ],
   },
 
@@ -269,13 +281,13 @@ export const site = {
   // ---- Casos de éxito (PLACEHOLDERS) ------------------------------------
   cases: {
     eyebrow: "Casos",
-    title: "Lo que dicen quienes ya fueron acompañados",
+    title: "Alumnos que ya vieron sus primeras ventas",
     disclaimer:
-      "Espacios reservados para testimonios y casos reales. Reemplázalos por capturas, videos o citas verificables. No publiques resultados que no puedas respaldar.",
+      "Conversaciones reales del acompañamiento. Cambia o agrega capturas cuando tengas más resultados que puedas respaldar.",
     items: [
-      { quote: "[Testimonio real del alumno — resultado concreto y verificable]", name: "[Nombre del alumno]", detail: "[Nicho / país]" },
-      { quote: "[Testimonio real del alumno — qué cambió con el acompañamiento]", name: "[Nombre del alumno]", detail: "[Nicho / país]" },
-      { quote: "[Testimonio real del alumno — antes y después]", name: "[Nombre del alumno]", detail: "[Nicho / país]" },
+      { src: "/media/testimonio-jose.jpg", caption: "Primera venta de un alumno", detail: "«Ya está funcionando»" },
+      { src: "/media/testimonio-primera-campana.jpg", caption: "Resultados en menos de un mes", detail: "Primera campaña" },
+      { placeholder: true, caption: "Sube aquí otra captura real", detail: "[Nicho / país]" },
     ],
   },
 
@@ -288,8 +300,8 @@ export const site = {
       "Mi enfoque es simple: datos por encima de opiniones, ejecución por encima de excusas y acompañamiento por encima de contenido acumulado.",
     ],
     credentials: [
-      "Operador activo de ecommerce",
-      "+USD 100.000 en ventas [verificar]",
+      "Operador activo de dropshipping",
+      "+USD 100.000 en ventas",
       "Experiencia en Meta y TikTok Ads",
       "Enfoque en margen y escalamiento",
     ],
@@ -301,12 +313,12 @@ export const site = {
     title: "Lo que probablemente te estás preguntando",
     items: [
       { q: "¿Cuánto cuesta la mentoría?", a: "El valor depende del punto de partida y de tus objetivos. Por eso el primer paso es una llamada de diagnóstico: primero revisamos si puedo ayudarte y qué necesitas, y sobre eso hablamos de la inversión." },
-      { q: "¿Es 1:1 o grupal?", a: "Es acompañamiento 1:1. La idea es exactamente lo contrario a una llamada con 20 personas: reviso tu negocio contigo, con tu contexto y tus números." },
-      { q: "¿Necesito ya tener una tienda?", a: "Ayuda tenerla, pero no es obligatorio. Trabajo tanto con quienes ya venden y quieren escalar como con quienes están listos para construir su operación con criterio desde el inicio." },
+      { q: "¿Es 1:1 o grupal?", a: "Es acompañamiento 1:1 conmigo. Trabajamos sobre tu proyecto, resolvemos tus dudas y definimos los siguientes pasos según lo que vas construyendo." },
+      { q: "¿Puedo empezar desde cero, sin tener una tienda?", a: "Sí. La mentoría está pensada para acompañarte a crear tu negocio con dropshipping: elegir un producto, evaluar proveedores, montar tu tienda y preparar tus primeras campañas. Necesitas tiempo para ejecutar y presupuesto para ponerlo en marcha. Si ya has empezado, adaptamos la ruta a tu avance." },
       { q: "¿Me garantizas resultados?", a: "No prometo resultados garantizados — sería deshonesto. Lo que garantizo es criterio, acompañamiento real y decisiones basadas en tus datos. Los resultados dependen también de tu ejecución." },
       { q: "¿Cuánto capital necesito para operar?", a: "El ecommerce con pauta requiere presupuesto para probar productos y campañas. En la llamada revisamos tu situación para ser realistas sobre lo que se puede lograr con tus recursos." },
       { q: "¿Cómo es el acompañamiento entre sesiones?", a: "Tienes acceso directo por WhatsApp para dudas puntuales. No es un grupo: es comunicación directa para que no te quedes trancado en decisiones clave." },
-      { q: "¿Por qué debería confiar en ti?", a: "Porque soy un operador real, no solo un creador de contenido. La autoridad viene de la experiencia y de las pruebas — por eso esta página tiene espacio para mostrar datos verificables, no solo frases." },
+      { q: "¿Cómo sé si esta mentoría es lo que necesito?", a: "Cuéntame por WhatsApp qué te gustaría construir, qué has intentado y qué necesitas aprender. No hace falta tener una tienda. Revisamos tu punto de partida y definimos si el acompañamiento 1:1 encaja contigo." },
     ],
   },
 
@@ -318,6 +330,66 @@ export const site = {
     micro: "Cupos limitados por acompañamiento personalizado · Solo por aplicación",
   },
 
+  // ---- Escasez / cupos (honesto y editable) -----------------------------
+  scarcity: {
+    total: 6,
+    taken: 4,
+    open: true,
+    openLabel: "Abierto para nuevas plazas",
+    closedLabel: "Lista de espera",
+    headline: "Trabajo con pocas personas a la vez. A propósito.",
+    sub: "El acompañamiento es 1:1 y real: reviso tu negocio contigo. Por eso cada mes los cupos son limitados.",
+    // TODO: mantén total/taken reales. No inventes escasez que no exista.
+  },
+
+  // ---- Expectativa vs. realidad (gurú vs. operador) ---------------------
+  gap: {
+    eyebrow: "Expectativa vs. realidad",
+    title: "Lo que vende el gurú vs. lo que de verdad pasa",
+    lead: "Si ya te quemaste con promesas, esto te va a sonar. Aquí no vendemos humo.",
+    rows: [
+      { promise: "«Hazte millonario en 30 días»", reality: "Meses de pruebas, iteración y decisiones con datos" },
+      { promise: "«Ingresos 100% pasivos»", reality: "Atención al cliente, devoluciones y gestión diaria" },
+      { promise: "«El producto ganador secreto»", reality: "Validación, oferta y creativos que se prueban y ajustan" },
+      { promise: "«Solo copia mi tienda»", reality: "Tu país, tu margen y tu producto exigen tu propia estrategia" },
+      { promise: "«Resultados garantizados»", reality: "Los resultados dependen de tu ejecución y tu capital" },
+    ],
+  },
+
+  // ---- El costo de esperar (FOMO honesto) -------------------------------
+  cost: {
+    eyebrow: "El costo de esperar",
+    title: "El próximo trimestre pasa contigo o sin ti",
+    lead: "Cada mes sin criterio es presupuesto quemado en campañas a ciegas y decisiones por corazonada.",
+    points: [
+      "Presupuesto gastado sin datos para decidir",
+      "Meses perdidos probando sin método",
+      "El cupo de este mes se lo lleva otro",
+    ],
+    reframe: "No es presión. Es el calendario: la temporada alta no espera.",
+  },
+
+  // ---- Mini-aplicación (enruta a WhatsApp con las respuestas) -----------
+  apply: {
+    eyebrow: "Aplicar",
+    title: "Cuéntame de tu negocio",
+    lead: "Responde 3 cosas y te escribo yo directamente por WhatsApp para ver si puedo ayudarte. Sin compromiso.",
+    questions: [
+      { id: "Etapa", label: "¿En qué etapa estás?", options: ["Aún no tengo tienda", "Tengo tienda, poco o nada de ventas", "Ya vendo y quiero escalar"] },
+      { id: "Capital", label: "¿Con cuánto puedes operar/pautar al mes?", options: ["Menos de US$300", "US$300 – US$1.000", "Más de US$1.000"] },
+      { id: "Compromiso", label: "¿Puedes ejecutar cada semana?", options: ["Sí, tengo el tiempo", "Tengo tiempo limitado", "Aún no estoy seguro"] },
+    ],
+    success: "¡Listo! Te escribo yo en persona por WhatsApp, no un bot. Revisamos tu caso con calma.",
+    cta: "Enviar y abrir WhatsApp",
+  },
+
+  // ---- Garantías / reversión de objeciones ------------------------------
+  guarantees: [
+    { title: "Sin compromiso", text: "La llamada de diagnóstico es para ver si encajamos. Si no puedo ayudarte, te lo digo de frente." },
+    { title: "Acceso directo", text: "Hablas conmigo, el operador — no con un empleado ni un grupo de 20 personas." },
+    { title: "Honestidad primero", text: "No prometo resultados garantizados. Prometo criterio, datos y acompañamiento real." },
+  ],
+
   footerNote:
     "Este sitio no promete enriquecimiento ni resultados garantizados. El ecommerce implica riesgo e inversión, y los resultados dependen de la ejecución de cada persona.",
 } as const;
@@ -325,7 +397,10 @@ export const site = {
 export type Site = typeof site;
 
 /** Enlace de WhatsApp listo para usar (con mensaje pre-cargado). */
-export function whatsappHref() {
-  const msg = encodeURIComponent(site.contact.whatsappMessage);
+export const whatsappConfigured = /^\d{8,15}$/.test(site.contact.whatsapp) &&
+  String(site.contact.whatsapp) !== "573000000000";
+
+export function whatsappHref(message: string = site.contact.whatsappMessage) {
+  const msg = encodeURIComponent(message);
   return `https://wa.me/${site.contact.whatsapp}?text=${msg}`;
 }
