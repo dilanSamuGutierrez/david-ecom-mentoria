@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 export function WhatsAppLink({ children, message, variant = "primary", className }: {
   children: ReactNode;
   message?: string;
-  variant?: "primary" | "text";
+  variant?: "primary" | "outline";
   className?: string;
 }) {
   return (
@@ -14,11 +14,11 @@ export function WhatsAppLink({ children, message, variant = "primary", className
       href={whatsappConfigured ? whatsappHref(message) : "#contacto"}
       target={whatsappConfigured ? "_blank" : undefined}
       rel={whatsappConfigured ? "noopener noreferrer" : undefined}
-      className={cn("wa-link", variant === "text" && "wa-link-text", className)}
+      className={cn("wa-link group", variant === "outline" && "wa-link-outline", className)}
     >
-      {variant === "primary" && <MessageCircle size={18} aria-hidden />}
+      <MessageCircle size={18} aria-hidden />
       <span>{children}</span>
-      <ArrowUpRight size={18} aria-hidden />
+      <ArrowUpRight size={18} aria-hidden className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
     </a>
   );
 }

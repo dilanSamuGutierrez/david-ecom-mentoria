@@ -1,20 +1,15 @@
 import { Nav } from "@/components/site/nav";
 import { Footer } from "@/components/site/footer";
 import { Hero } from "@/components/sections/hero";
-import { Authority } from "@/components/sections/authority";
-import { StageFinder } from "@/components/sections/stage-finder";
-import { Problem } from "@/components/sections/problem";
-import { Proposal } from "@/components/sections/proposal";
-import { Evidence } from "@/components/sections/evidence";
-import { Includes } from "@/components/sections/includes";
-import { Methodology } from "@/components/sections/methodology";
-import { Cases } from "@/components/sections/cases";
-import { ForWho } from "@/components/sections/forwho";
-import { About } from "@/components/sections/about";
+import { Experiencia } from "@/components/sections/experiencia";
+import { Sistema } from "@/components/sections/sistema";
+import { Metodo } from "@/components/sections/metodo";
+import { Servicios } from "@/components/sections/servicios";
+import { Alumnos } from "@/components/sections/alumnos";
+import { ParaQuien } from "@/components/sections/para-quien";
 import { Faq } from "@/components/sections/faq";
-import { FinalCta } from "@/components/sections/final-cta";
+import { Contacto } from "@/components/sections/contacto";
 import { jsonLd } from "@/lib/jsonld";
-import "./post-hero.css";
 
 export default function Home() {
   return (
@@ -24,20 +19,14 @@ export default function Home() {
       <Nav />
       <main id="contenido">
         <Hero />
-        <div className="post-hero">
-          <Authority />
-          <StageFinder />
-          <Problem />
-          <Proposal />
-          <Evidence />
-          <Includes />
-          <Methodology />
-          <Cases />
-          <ForWho />
-          <About />
-          <Faq />
-          <FinalCta />
-        </div>
+        <Experiencia />
+        <Sistema />
+        <Metodo />
+        <Servicios />
+        <Alumnos />
+        <ParaQuien />
+        <Faq />
+        <Contacto />
       </main>
       <Footer />
     </>

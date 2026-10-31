@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "gradient-text",
+        "value": "*",
+        "files": [
+          "components/sections/hero.tsx"
+        ],
+        "createdAt": "2026-10-31T15:27:09.061Z",
+        "reason": "user asked to keep the original hero concept, whose title already used this emerald gradient"
+      }
+    ]
+  }
+}

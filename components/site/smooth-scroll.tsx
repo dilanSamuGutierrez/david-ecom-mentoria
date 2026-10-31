@@ -2,26 +2,19 @@
 
 import { useEffect } from "react";
 import Lenis from "lenis";
+import { gsap, ScrollTrigger, reducido } from "@/lib/gsap";
 
+/** Lenis sincronizado con el reloj de GSAP para que ScrollTrigger no se desfase. */
 export function SmoothScroll() {
   useEffect(() => {
-    if (
-      typeof window !== "undefined" &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    ) {
-      return;
-    }
-
-    const lenis = new Lenis({ duration: 1.1, smoothWheel: true });
-    let raf = 0;
-    const loop = (time: number) => {
-      lenis.raf(time);
-      raf = requestAnimationFrame(loop);
-    };
-    raf = requestAnimationFrame(loop);
-
+    if (reducido()) return;
+    const lenis = new Lenis({ lerp: 0.09, smoothWheel: true, anchors: { offset: -72 } });
+    lenis.on("scroll", ScrollTrigger.update);
+    const tick = (t: number) => lenis.raf(t * 1000);
+    gsap.ticker.add(tick);
+    gsap.ticker.lagSmoothing(0);
     return () => {
-      cancelAnimationFrame(raf);
+      gsap.ticker.remove(tick);
       lenis.destroy();
     };
   }, []);

@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import { useId, useRef } from "react";
-import { Maximize2, X } from "lucide-react";
+import { Maximize2, MessageCircle, X } from "lucide-react";
+import { whatsappHref } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 export function ProofImage({ src, alt, caption, aspect = "4/3", fit = "contain", className, priority = false, sizes = "(max-width: 768px) 90vw, 45vw", wide = false }: {
@@ -19,7 +20,7 @@ export function ProofImage({ src, alt, caption, aspect = "4/3", fit = "contain",
       </button>
       {caption && <figcaption className="proof-caption">{caption}</figcaption>}
       <dialog ref={dialog} className="proof-dialog" aria-labelledby={titleId} onClick={event => { if (event.target === event.currentTarget) dialog.current?.close(); }}>
-        <div className="proof-dialog-header"><p id={titleId}>{alt}{wide && <span className="block mt-1 text-xs text-muted">Desliza horizontalmente para leer todas las columnas.</span>}</p><button type="button" aria-label="Cerrar captura" onClick={() => dialog.current?.close()}><X size={20} aria-hidden /></button></div>
+        <div className="proof-dialog-header"><p id={titleId}>{alt}{wide && <span className="block mt-1 text-xs text-muted">Desliza horizontalmente para leer todas las columnas.</span>}</p><div className="proof-dialog-actions"><a href={whatsappHref()} target="_blank" rel="noopener noreferrer" className="proof-dialog-wa" aria-label="Hablar con David por WhatsApp"><MessageCircle size={15} aria-hidden /><span className="hidden sm:inline">Hablar con David</span></a><button type="button" aria-label="Cerrar captura" onClick={() => dialog.current?.close()}><X size={20} aria-hidden /></button></div></div>
         <div className="proof-dialog-scroll" data-lenis-prevent>
           {/* Original resolution is intentional in the evidence viewer. */}
           {/* eslint-disable-next-line @next/next/no-img-element */}

@@ -1,0 +1,198 @@
+/* ============================================================
+   DAVID ECOM — estilos de componentes de la página
+   (los tokens viven en globals.css)
+   ============================================================ */
+
+/* ---------- Portada ---------- */
+.hero-cuadricula {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 70px 70px;
+  mask-image: radial-gradient(circle at center, black 15%, transparent 85%);
+}
+
+.hero-oferta {
+  /* Fondo casi opaco en lugar de backdrop-filter: la foto de David se mueve
+     detrás al hacer scroll y el desenfoque se recalcularía en cada fotograma. */
+  background: linear-gradient(180deg, rgba(12, 26, 20, 0.94), rgba(6, 12, 10, 0.97));
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: 0 30px 80px -40px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+/* Órbita de herramientas alrededor de David */
+.orbita-giro { animation: orbita 60s linear infinite; will-change: rotate; }
+.orbita-punto { transform: rotate(var(--a)) translateX(var(--r, 285px)) rotate(calc(var(--a) * -1)); }
+.orbita-chip {
+  display: inline-block;
+  translate: -50% -50%;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid rgba(110, 231, 183, 0.22);
+  background: rgba(6, 14, 11, 0.88);
+  color: #a7f3d0;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  animation: orbita 60s linear infinite reverse;
+}
+@media (min-width: 768px) { .orbita-punto { --r: 335px; } }
+@media (min-width: 1280px) { .orbita-punto { --r: 325px; } }
+@keyframes orbita { to { rotate: 360deg; } }
+
+/* ---------- Franjas (marquee) ---------- */
+.franja { display: flex; overflow: hidden; }
+.franja-pista { display: flex; width: max-content; animation: franja linear infinite; }
+.franja-reversa { animation-direction: reverse; }
+.franja-copia { display: flex; flex-shrink: 0; align-items: center; }
+.franja-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.75rem;
+  padding-right: 1.75rem;
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(1.25rem, 2.6vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.franja-estrella { font-size: 0.7em; }
+@keyframes franja { to { transform: translateX(-50%); } }
+
+/* ---------- Botones de WhatsApp ---------- */
+.wa-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 3.25rem;
+  padding: 0.85rem 1.5rem;
+  border-radius: 999px;
+  background: var(--color-primary);
+  color: var(--color-primary-foreground);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.wa-link svg { flex-shrink: 0; }
+.wa-link:hover { background: var(--color-primary-soft); transform: translateY(-2px); }
+.wa-link:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+.wa-link-outline { background: transparent; color: var(--color-foreground); border: 1px solid rgba(255, 255, 255, 0.16); }
+.wa-link-outline:hover { background: rgba(18, 185, 129, 0.1); border-color: var(--color-primary); }
+
+/* ---------- Navegación: texto que rueda ---------- */
+.nav-roll { display: inline-grid; overflow: hidden; height: 1.3em; line-height: 1.3; }
+.nav-roll span { display: block; transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1); }
+.nav-roll span::after { content: attr(data-texto); display: block; color: var(--color-mint); }
+.nav-roll:hover span { transform: translateY(-100%); }
+
+/* ---------- Preguntas ---------- */
+.faq-item summary:focus-visible { outline: 2px solid var(--color-primary-soft); outline-offset: 4px; border-radius: 0.5rem; }
+.faq-item[open] .faq-respuesta { animation: faq-abre 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
+@keyframes faq-abre { from { opacity: 0; transform: translateY(-8px); } }
+
+/* ---------- Formulario ---------- */
+.contacto-form .campo { display: grid; gap: 0.6rem; font-size: 0.9rem; font-weight: 500; color: var(--color-foreground); border: 0; padding: 0; margin: 0; min-width: 0; }
+.contacto-form legend { margin-bottom: 0.6rem; }
+.contacto-form input[type="text"],
+.contacto-form textarea {
+  width: 100%;
+  border-radius: 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 0.9rem 1rem;
+  font-size: 1rem; /* 16px: evita el zoom en iOS */
+  font-weight: 400;
+  color: var(--color-foreground);
+  transition: border-color 0.2s ease;
+}
+.contacto-form textarea { resize: vertical; }
+.contacto-form input::placeholder, .contacto-form textarea::placeholder { color: var(--color-faint); }
+.contacto-form input[type="text"]:focus, .contacto-form textarea:focus { outline: none; border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(18, 185, 129, 0.18); }
+.contacto-form .opciones { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.contacto-form .opciones label { position: relative; }
+.contacto-form .opciones input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+.contacto-form .opciones span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.9rem;
+  padding: 0.6rem 1.05rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  font-weight: 400;
+  color: var(--color-muted);
+  transition: all 0.2s ease;
+}
+.contacto-form .opciones input:checked + span { background: var(--color-primary); border-color: var(--color-primary); color: var(--color-primary-foreground); font-weight: 600; }
+.contacto-form .opciones input:focus-visible + span { outline: 2px solid var(--color-primary-soft); outline-offset: 3px; }
+
+/* ---------- Capturas ampliables ---------- */
+.proof-image { margin: 0; overflow: hidden; border-radius: 1.1rem; background: #0b1210; min-width: 0; }
+.proof-trigger { display: block; position: relative; width: 100%; cursor: zoom-in; }
+.proof-zoom { position: absolute; bottom: 0.7rem; right: 0.7rem; display: flex; align-items: center; gap: 0.4rem; border-radius: 999px; padding: 0.45rem 0.7rem; background: rgba(6, 14, 11, 0.85); color: #d7f7e4; font-size: 0.72rem; border: 1px solid #3d5948; }
+.proof-caption { font-size: 0.8rem; padding: 0.85rem 1rem; color: #b9cbc0; }
+.proof-dialog { position: fixed; inset: 0; margin: auto; width: min(95vw, 60rem); max-height: 90dvh; padding: 0; border: 1px solid #45624f; border-radius: 1rem; background: #0a100c; color: #ecf2ee; overflow: auto; overscroll-behavior: contain; }
+.proof-dialog::backdrop { background: rgb(0 0 0 / 0.88); }
+.proof-dialog-header { position: sticky; top: 0; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem; background: #0a100c; border-bottom: 1px solid #2b3a31; font-size: 0.85rem; }
+.proof-dialog-header button { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; flex-shrink: 0; border-radius: 0.5rem; border: 1px solid #45624f; cursor: pointer; }
+.proof-dialog-scroll { overflow-x: auto; }
+.proof-dialog-image { display: block; width: 100%; height: auto; }
+.proof-dialog-image.portrait { width: auto; max-width: 100%; max-height: 1600px; margin-inline: auto; }
+.proof-dialog-image.wide { min-width: 1100px; }
+
+/* ---------- Botón flotante "Hablar con David" ---------- */
+.flotante {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  z-index: 60;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 3.25rem;
+  min-width: 3.25rem;
+  padding: 0 1.25rem 0 1rem;
+  border-radius: 999px;
+  background: var(--color-primary);
+  color: var(--color-primary-foreground);
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow: 0 0 0 3px rgba(6, 10, 8, 0.85), 0 16px 40px -14px rgba(18, 185, 129, 0.65), 0 0 0 1px rgba(124, 232, 184, 0.5) inset;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s ease, background-color 0.3s ease;
+}
+.flotante:hover { background: var(--color-primary-soft); transform: translateY(-2px); }
+.flotante:focus-visible { outline: 3px solid #eafff5; outline-offset: 3px; }
+.flotante-oculto { opacity: 0; transform: translateY(150%); pointer-events: none; }
+/* En pantallas muy estrechas solo el icono, con su nombre accesible */
+@media (max-width: 359px) {
+  .flotante { padding: 0; justify-content: center; }
+  .flotante-texto { display: none; }
+}
+/* Con una captura ampliada el acceso vive dentro del diálogo (ver ProofImage) */
+body:has(dialog[open]) .flotante { visibility: hidden; }
+.proof-dialog-actions { display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
+.proof-dialog-wa { display: inline-flex; align-items: center; gap: 0.4rem; min-height: 2.75rem; padding: 0 0.9rem; border-radius: 999px; background: var(--color-primary); color: var(--color-primary-foreground); font-weight: 600; font-size: 0.8rem; }
+
+/* Espacio para que el flotante no tape el final de la página */
+.site-footer { padding-bottom: 5.5rem; }
+.pie-marca {
+  font-size: clamp(4rem, 17vw, 16rem);
+  margin-top: 2rem;
+  margin-bottom: -0.12em;
+  color: rgba(18, 185, 129, 0.1);
+}
+
+/* ---------- Accesibilidad ---------- */
+.skip-link { position: fixed; top: 0.75rem; left: 0.75rem; z-index: 100; transform: translateY(-200%); background: #dcf5e6; color: #0a1510; padding: 0.8rem 1rem; border-radius: 0.5rem; }
+.skip-link:focus { transform: translateY(0); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--color-primary-soft); outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .orbita-giro, .orbita-chip, .franja-pista { animation: none !important; }
+  .s-central { transform: none !important; border-radius: 0 !important; }
+  .s-pasos { display: none; }
+}

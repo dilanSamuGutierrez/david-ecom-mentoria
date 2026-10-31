@@ -49,7 +49,7 @@
     border-color: var(--color-border);
   }
   html {
-    scroll-behavior: smooth;
+    overflow-x: clip;
     scroll-padding-top: 5.5rem;
     -webkit-text-size-adjust: 100%;
   }
@@ -59,7 +59,7 @@
     font-family: var(--font-sans), system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    overflow-x: hidden;
+    overflow-x: clip;
   }
   h1, h2, h3, h4 {
     font-family: var(--font-display), sans-serif;
@@ -116,12 +116,6 @@
   color: var(--color-primary-soft);
 }
 
-.text-gradient {
-  background: linear-gradient(115deg, #ecf2ee 0%, #a7f3d0 60%, #34d399 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
 
 /* ---------- Detalles gráficos ---------- */
 
