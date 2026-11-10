@@ -24,6 +24,26 @@ export function Lineas({ as = "h2", tipo = "lines", alCargar = false, retraso = 
   return <Tag ref={ref} className={className}>{children}</Tag>;
 }
 
+/**
+ * Texto que se ilumina palabra por palabra al ritmo de la lectura
+ * (recurso típico de plantillas de portafolio). Solo anima opacity.
+ */
+export function TextoResalta({ as = "p", className, children }: { as?: ElementType; className?: string; children: ReactNode }) {
+  const ref = useRef<HTMLElement>(null);
+  const Tag = as;
+  useGSAP(() => {
+    if (reducido() || !ref.current) return;
+    SplitText.create(ref.current, {
+      type: "words", autoSplit: true,
+      onSplit: (s) => gsap.fromTo(s.words, { opacity: 0.18 }, {
+        opacity: 1, ease: "none", stagger: 0.1,
+        scrollTrigger: { trigger: ref.current, start: "top 82%", end: "bottom 55%", scrub: true },
+      }),
+    });
+  }, { scope: ref });
+  return <Tag ref={ref} className={className}>{children}</Tag>;
+}
+
 /** Aparece subiendo; con `grupo` anima a los hijos en cascada. */
 export function Subir({ grupo = false, as = "div", className, children }: { grupo?: boolean; as?: ElementType; className?: string; children: ReactNode }) {
   const ref = useRef<HTMLElement>(null);

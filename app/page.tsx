@@ -7,6 +7,7 @@ import { Metodo } from "@/components/sections/metodo";
 import { Servicios } from "@/components/sections/servicios";
 import { Alumnos } from "@/components/sections/alumnos";
 import { ParaQuien } from "@/components/sections/para-quien";
+import { CtaBanda } from "@/components/sections/cta-banda";
 import { Faq } from "@/components/sections/faq";
 import { Contacto } from "@/components/sections/contacto";
 import { jsonLd } from "@/lib/jsonld";
@@ -24,6 +25,7 @@ export default function Home() {
         <Metodo />
         <Servicios />
         <Alumnos />
+        <CtaBanda />
         <ParaQuien />
         <Faq />
         <Contacto />

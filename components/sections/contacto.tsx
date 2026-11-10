@@ -29,12 +29,12 @@ export function Contacto() {
   }
 
   return (
-    <section id="contacto" className="relative overflow-hidden rounded-t-[2.5rem] bg-surface py-[clamp(5rem,11vw,10rem)] md:rounded-t-[4rem]">
+    <section id="contacto" className="relative overflow-hidden rounded-t-[2.5rem] bg-surface py-[clamp(3.75rem,11vw,10rem)] md:rounded-t-[4rem]">
       <div className="pointer-events-none absolute -bottom-40 left-1/2 h-[420px] w-[900px] -translate-x-1/2 bg-[radial-gradient(closest-side,rgba(18,185,129,0.14),transparent)]" aria-hidden />
       <div className="relative mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[1fr_1fr] lg:gap-20">
         <div>
           <span className="kicker">{contactSection.kicker}</span>
-          <Lineas className="mt-6 text-[clamp(2.4rem,5.5vw,4.75rem)] font-semibold leading-[0.98] tracking-[-0.045em]">
+          <Lineas className="mt-6 text-[clamp(1.9rem,5.5vw,4.75rem)] font-semibold leading-[0.98] tracking-[-0.045em]">
             Cuéntame qué te frena. <span className="text-mint">Revisemos por dónde empezar.</span>
           </Lineas>
           <p className="mt-6 max-w-lg text-[1.0625rem] leading-relaxed text-muted">{contactSection.lead}</p>

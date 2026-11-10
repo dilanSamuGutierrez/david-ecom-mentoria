@@ -89,7 +89,7 @@ export function Hero() {
         </div>
 
         {/* Escenario central */}
-        <div className="relative mt-2 min-h-[440px] sm:min-h-[600px] md:min-h-[660px] xl:min-h-[700px]">
+        <div className="relative mt-4 min-h-[min(108vw,460px)] sm:mt-2 sm:min-h-[600px] md:min-h-[660px] xl:min-h-[700px]">
           <div className="h-circulos pointer-events-none absolute inset-0 will-change-transform">
             <div className="h-circulo absolute left-1/2 top-[12%] size-[340px] -translate-x-1/2 rounded-full border border-primary/10 bg-primary/10 sm:top-[12%] sm:size-[480px] md:size-[570px] xl:size-[630px]" />
             <div className="h-anillo absolute left-1/2 top-[7%] size-[410px] -translate-x-1/2 rounded-full border border-white/[0.05] sm:top-[8%] sm:size-[570px] md:size-[670px] xl:size-[740px]" />
@@ -110,8 +110,8 @@ export function Hero() {
 
           {/* David */}
           <div className="h-avatar-scroll pointer-events-none absolute inset-x-0 bottom-0 z-20 flex justify-center will-change-transform">
-            <div className="h-avatar relative aspect-[1289/1221] w-[min(150vw,640px)] translate-y-[6%] sm:w-[600px] sm:translate-y-[3%] md:w-[660px] xl:w-[720px] 2xl:w-[790px]">
-              <Image src="/media/JOSEXXO_2-1400.webp" alt="David Hernández sosteniendo los iconos de Meta, TikTok Ads, Shopify y Dropi" fill priority className="object-contain object-bottom" sizes="(max-width: 640px) 150vw, 790px" fetchPriority="high" />
+            <div className="h-avatar relative aspect-[1289/1221] w-[min(114vw,480px)] sm:w-[600px] sm:translate-y-[3%] md:w-[660px] xl:w-[720px] 2xl:w-[790px]">
+              <Image src="/media/JOSEXXO_2-1400.webp" alt="David Hernández sosteniendo los iconos de Meta, TikTok Ads, Shopify y Dropi" fill priority className="object-contain object-bottom" sizes="(max-width: 640px) 114vw, 790px" fetchPriority="high" />
             </div>
           </div>
 
@@ -136,8 +136,8 @@ export function Hero() {
       </div>
 
       {/* Oferta: precio y sesiones visibles desde la primera pantalla */}
-      <div className="h-oferta relative z-40 mx-auto -mt-28 w-[calc(100%-2rem)] max-w-5xl pb-8 sm:-mt-24 md:pb-14">
-        <div className="hero-oferta grid items-center gap-4 rounded-[1.75rem] p-4 sm:p-5 md:grid-cols-[auto_1fr_auto] md:gap-8 md:p-6">
+      <div className="h-oferta relative z-40 mx-auto mt-0 w-[calc(100%-2rem)] max-w-5xl pb-8 sm:-mt-24 md:pb-14">
+        <div className="hero-oferta hidden items-center gap-4 rounded-[1.75rem] p-4 sm:p-5 md:grid md:grid-cols-[auto_1fr_auto] md:gap-8 md:p-6">
           <div className="flex items-baseline gap-2">
             <strong className="text-4xl font-semibold tracking-[-0.04em] text-white sm:text-5xl">{hero.price}</strong>
             <span className="text-sm text-white/60">{hero.priceUnit}</span>
@@ -158,7 +158,7 @@ export function Hero() {
         </div>
 
         {/* Cifras en móvil y tablet */}
-        <div className="mt-3 grid grid-cols-2 gap-3 xl:hidden">
+        <div className="grid grid-cols-2 gap-3 md:mt-3 xl:hidden">
           {hero.stats.map((s) => (
             <Cifra key={s.sr} {...s} chica className="rounded-2xl border border-white/10 bg-[#0a1411]/90 p-4" />
           ))}

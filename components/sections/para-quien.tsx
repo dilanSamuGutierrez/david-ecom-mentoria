@@ -7,7 +7,7 @@ const { forWho } = site;
 /** 6. Para quién es y requisitos para empezar (banda clara). */
 export function ParaQuien() {
   return (
-    <section id="para-quien" className="on-light rounded-[2.5rem] py-[clamp(5rem,11vw,10rem)] md:rounded-[4rem]">
+    <section id="para-quien" className="on-light rounded-[2.5rem] py-[clamp(3.75rem,11vw,10rem)] md:rounded-[4rem]">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <span className="kicker">{forWho.kicker}</span>
         <Lineas className="mt-6 max-w-4xl text-[clamp(2rem,4.8vw,3.75rem)] font-semibold leading-[1.02] tracking-[-0.045em]">

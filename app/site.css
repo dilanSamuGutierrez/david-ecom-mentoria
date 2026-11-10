@@ -42,6 +42,18 @@
 @media (min-width: 1280px) { .orbita-punto { --r: 325px; } }
 @keyframes orbita { to { rotate: 360deg; } }
 
+/* ---------- Flujo del sistema ---------- */
+.flujo-punto { transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease; }
+.flujo-paso.activo .flujo-punto { background: var(--color-primary); border-color: var(--color-primary); color: var(--color-primary-foreground); box-shadow: 0 0 0 6px rgba(18, 185, 129, 0.15); }
+.flujo-paso h3 { transition: color 0.4s ease; }
+.flujo-paso:not(.activo) h3 { color: rgba(236, 242, 238, 0.55); }
+
+/* ---------- Línea de tiempo del método ---------- */
+.etapa-punto { transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease; }
+.etapa.activo .etapa-punto { background: var(--color-primary); border-color: var(--color-primary); color: var(--color-primary-foreground); }
+
+.bordes-suaves { mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+
 /* ---------- Franjas (marquee) ---------- */
 .franja { display: flex; overflow: hidden; }
 .franja-pista { display: flex; width: max-content; animation: franja linear infinite; }
@@ -83,6 +95,8 @@
 .wa-link:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
 .wa-link-outline { background: transparent; color: var(--color-foreground); border: 1px solid rgba(255, 255, 255, 0.16); }
 .wa-link-outline:hover { background: rgba(18, 185, 129, 0.1); border-color: var(--color-primary); }
+.wa-link-oscuro { background: #06110c; color: #ecf2ee; }
+.wa-link-oscuro:hover { background: #0d2219; }
 
 /* ---------- Navegación: texto que rueda ---------- */
 .nav-roll { display: inline-grid; overflow: hidden; height: 1.3em; line-height: 1.3; }
@@ -167,10 +181,24 @@
 .flotante:hover { background: var(--color-primary-soft); transform: translateY(-2px); }
 .flotante:focus-visible { outline: 3px solid #eafff5; outline-offset: 3px; }
 .flotante-oculto { opacity: 0; transform: translateY(150%); pointer-events: none; }
-/* En pantallas muy estrechas solo el icono, con su nombre accesible */
-@media (max-width: 359px) {
-  .flotante { padding: 0; justify-content: center; }
-  .flotante-texto { display: none; }
+/* En celular: barra fija al 100 % del ancho, pegada abajo, siempre visible */
+@media (max-width: 639px) {
+  .flotante {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    min-height: calc(3.5rem + env(safe-area-inset-bottom));
+    padding: 0 1rem env(safe-area-inset-bottom);
+    border-radius: 0;
+    font-size: 1rem;
+    box-shadow: 0 -10px 30px -12px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(124, 232, 184, 0.6);
+  }
+  .flotante:hover { transform: none; }
+  .flotante:focus-visible { outline-offset: -4px; }
+  /* Reserva el alto de la barra para que no tape el final de la página */
+  body { padding-bottom: calc(3.5rem + env(safe-area-inset-bottom)); }
+  body .site-footer { padding-bottom: 1.5rem; }
 }
 /* Con una captura ampliada el acceso vive dentro del diálogo (ver ProofImage) */
 body:has(dialog[open]) .flotante { visibility: hidden; }
@@ -193,6 +221,6 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--color-primary-s
 
 @media (prefers-reduced-motion: reduce) {
   .orbita-giro, .orbita-chip, .franja-pista { animation: none !important; }
-  .s-central { transform: none !important; border-radius: 0 !important; }
-  .s-pasos { display: none; }
+  .flujo-paso .flujo-punto, .etapa .etapa-punto { background: var(--color-primary); border-color: var(--color-primary); color: var(--color-primary-foreground); }
+  .flujo-paso h3 { color: inherit !important; }
 }

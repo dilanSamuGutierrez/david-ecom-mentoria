@@ -91,6 +91,12 @@ export const site = {
     kicker: "El sistema",
     title: "Del anuncio a la conversación. De la conversación al pedido.",
     text: "La tienda es una herramienta. Lo central es atraer consultas con anuncios, cerrar la venta por WhatsApp y despachar con tu propia logística.",
+    steps: [
+      { title: "Anuncio", text: "Meta Ads lleva tu oferta a personas interesadas y las invita a escribirte." },
+      { title: "WhatsApp", text: "Respondes dudas, das confianza y cierras la venta en la conversación." },
+      { title: "Pedido", text: "Confirmas, despachas y haces seguimiento con tu propia logística." },
+    ],
+    videoCaption: "El último paso: el pedido sale de tu operación.",
     // Ruta pública de un video (mp4/webm). Vacío = se muestra la foto.
     // Video de stock (Mixkit, licencia gratuita comercial) hasta tener uno de David.
     video: "/media/sistema-pedidos.mp4",

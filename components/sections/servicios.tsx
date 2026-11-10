@@ -9,16 +9,16 @@ const { mentoria: m, gestion: g } = services;
 /** 4. Servicios: mentoría (principal) y gestión de campañas (secundaria). */
 export function Servicios() {
   return (
-    <section id="servicios" className="relative py-[clamp(5rem,11vw,10rem)]">
+    <section id="servicios" className="relative py-[clamp(3.75rem,11vw,10rem)]">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="max-w-3xl">
           <span className="kicker">{services.kicker}</span>
-          <Lineas className="mt-6 text-[clamp(2.2rem,5.5vw,4.5rem)] font-semibold leading-[0.98] tracking-[-0.045em]">
+          <Lineas className="mt-6 text-[clamp(1.9rem,5.5vw,4.5rem)] font-semibold leading-[0.98] tracking-[-0.045em]">
             Elige el acompañamiento <span className="text-mint">que necesita tu negocio.</span>
           </Lineas>
         </div>
 
-        <Subir grupo className="mt-[clamp(3rem,6vw,5rem)] grid gap-5 lg:grid-cols-[1.25fr_1fr]">
+        <Subir grupo className="mt-[clamp(3rem,6vw,5rem)] grid gap-5 lg:grid-cols-[1.25fr_1fr] lg:items-start">
           {/* Mentoría */}
           <article className="servicio-principal relative overflow-hidden rounded-[2rem] bg-primary p-2 text-primary-foreground">
             <div className="rounded-[1.6rem] bg-[#0b1d16] p-[clamp(1.5rem,3.5vw,2.75rem)] text-foreground">
@@ -56,12 +56,12 @@ export function Servicios() {
               <strong className="block text-[clamp(2rem,4vw,2.9rem)] font-semibold leading-none tracking-[-0.045em] text-white">{g.price}</strong>
               <span className="mt-2 block text-muted">{g.unit}</span>
             </div>
-            <div className="mt-8 grid gap-4">
-              <div className="rounded-2xl border border-white/10 p-5">
+            <div className="mt-7 grid gap-5 sm:grid-cols-2 lg:grid-cols-1">
+              <div className="border-l-2 border-primary pl-4">
                 <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-mint">Nos encargamos de</span>
                 <p className="mt-2 text-[0.95rem] leading-relaxed">{g.we}</p>
               </div>
-              <div className="rounded-2xl border border-white/10 p-5">
+              <div className="border-l-2 border-white/20 pl-4">
                 <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-faint">Tu equipo se encarga de</span>
                 <p className="mt-2 text-[0.95rem] leading-relaxed">{g.you}</p>
               </div>

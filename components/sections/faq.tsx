@@ -8,11 +8,11 @@ const { faq } = site;
 /** 7. Preguntas frecuentes y condiciones. */
 export function Faq() {
   return (
-    <section id="preguntas" className="py-[clamp(5rem,11vw,10rem)]">
+    <section id="preguntas" className="py-[clamp(3.75rem,11vw,10rem)]">
       <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
         <div className="lg:sticky lg:top-28 lg:self-start">
           <span className="kicker">{faq.kicker}</span>
-          <Lineas className="mt-6 text-[clamp(2.2rem,4.6vw,3.75rem)] font-semibold leading-[1] tracking-[-0.045em]">
+          <Lineas className="mt-6 text-[clamp(1.9rem,4.6vw,3.75rem)] font-semibold leading-[1] tracking-[-0.045em]">
             Precio, sesiones y condiciones, <span className="text-mint">sin letra pequeña.</span>
           </Lineas>
           <p className="mt-6 max-w-sm leading-relaxed text-muted">¿Tu duda no aparece? Escríbele a David y la revisan juntos.</p>
